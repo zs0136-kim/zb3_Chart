@@ -1,14 +1,87 @@
-:root {
-  font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  color: #1a1a1a;
-  background-color: #f4f6fb;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
+/* 共通部分のCSS */
 body {
-  min-height: 100vh;
+  background: #fdfdff;
+  color: #46497c;
+}
+
+/* サイドメニュー、サイドメニュー内項目の設定 */
+.sidebar-menu .el-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  height: 50px !important;
+  padding-left: 14px !important;
+  color: #4e517e !important;
+}
+
+/* サイドメニュー、サイドメニュー内項目、項目用アイコンの設定 */
+.sidebar-menu .el-menu-item .el-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: #46497c !important;
+}
+
+/* サイドメニュー、サイドメニュー内テキストの設定 */
+.sidebar-menu .menu-text {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* サイドメニュータイトルの設定 */
+.sidebar-title {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+  background: #fdfdff;
+}
+
+/* サイドバーのメニューを背景色を統一 */
+.sidebar-menu {
+  background: #fdfdff !important;
+  border-right: 1px solid #E0E0F0;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar-menu {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-top {
+  flex: 1;  /* ← 上の領域を広げる */
+}
+
+.sidebar-bottom {
+  padding-bottom: 20px; /* 少し余白 */
+}
+
+/* サイドバー全体に少し余白をつける（外側の余白） */
+.sidebar {
+  width: 240px;
+  padding: 12px;/* 外側に少し隙間ができる */
+  box-sizing: border-box;
+}
+
+/* メニューが「白いカード」になるようにする */
+.sidebar-menu {
+  background: #FFFFFF !important;
+  border-radius: 24px;/* 角丸 */
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);/* ふんわり影 */
+  padding-top: 16px;
+  height: calc(100vh - 24px);/* 画面高 − 外側余白 */
+  display: flex !important;
+  flex-direction: column;
 }
