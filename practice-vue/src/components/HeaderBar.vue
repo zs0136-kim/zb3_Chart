@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h2 class="header-title">ダッシュボード</h2>
+    <h2 class="header-title">{{ route.meta.title }}</h2>
 
     <!-- 右側プロフィール -->
     <div class="header-user">
@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+  import { useRoute } from 'vue-router'
+  const route = useRoute()
 </script>
 
 <style scoped>
@@ -30,7 +32,7 @@
 
 /* 左側タイトル */
 .header-title {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* 右側プロフィール全体 */

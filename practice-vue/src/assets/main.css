@@ -4,8 +4,17 @@ body {
   color: #46497c;
 }
 
+/* ------- カード共通 ------- */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
 /* サイドメニュー、サイドメニュー内項目の設定 */
-.sidebar-menu .el-menu-item {
+.sidebar-menu .el-menu-item,
+.sidebar-menu .el-sub-menu__title {
   display: flex !important;
   align-items: center !important;
   gap: 12px !important;
@@ -15,7 +24,8 @@ body {
 }
 
 /* サイドメニュー、サイドメニュー内項目、項目用アイコンの設定 */
-.sidebar-menu .el-menu-item .el-icon svg {
+.sidebar-menu .el-menu-item .el-icon svg,
+.sidebar-menu .el-sub-menu__title .el-icon svg {
   width: 22px !important;
   height: 22px !important;
   fill: #46497c !important;
@@ -43,6 +53,22 @@ body {
 .sidebar-menu {
   background: #fdfdff !important;
   border-right: 1px solid #E0E0F0;
+}
+
+/* アクティブ状態（子が選ばれているとき親も同じ色に） */
+.sidebar-menu .el-menu-item.is-active,
+.sidebar-menu .el-sub-menu.is-active > .el-sub-menu__title {
+  color: #8B5CF6;
+}
+
+/* 見積りの ▼ 矢印の色も同じに */
+.sidebar-menu .el-sub-menu__icon-arrow {
+  color: #5F6181;
+}
+
+/* 子メニューを右に寄せる */
+.sidebar-menu .el-sub-menu .el-menu-item {
+  padding-left: 36px !important;
 }
 
 .header {
@@ -75,7 +101,7 @@ body {
   box-sizing: border-box;
 }
 
-/* メニューが「白いカード」になるようにする */
+/* サイドメニューデザイン */
 .sidebar-menu {
   background: #FFFFFF !important;
   border-radius: 24px;/* 角丸 */
