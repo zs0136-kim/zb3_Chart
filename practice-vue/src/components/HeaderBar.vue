@@ -2,20 +2,45 @@
   <header class="header">
     <h2 class="header-title">{{ route.meta.title }}</h2>
 
-    <!-- 右側プロフィール -->
-    <div class="header-user">
-      <img src="/user.png" alt="User avatar" class="user-avatar" />
-      <div class="user-text">
-        <div class="user-name">Torikoshi Harumi</div>
-        <div class="user-role">IT事業部</div>
+    <div class="header-right">
+      <!-- ユーザー情報 -->
+      <div class="header-user">
+        <div class="user-avatar">
+          <img
+            v-if="currentUser.avatar"
+            :src="currentUser.avatar"
+            alt="avatar"
+            class="avatar-img"
+          />
+        </div>
+        <div class="user-text">
+          <div class="user-name">
+            {{ currentUser.name }}
+          </div>
+          <div class="user-dept">
+            {{ currentUser.dept }}
+          </div>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
+  import { computed } from 'vue'
   import { useRoute } from 'vue-router'
+  import { userStore } from '../stores/userStore'
+
   const route = useRoute()
+
+  const currentUser = computed(
+    () =>
+      userStore.currentUser || {
+        name: '',
+        dept: '',
+        avatar: '',
+      }
+  )
 </script>
 
 <style scoped>
@@ -23,24 +48,28 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 左タイトル / 右プロフィールを両端に */
+  justify-content: space-between;
   padding: 0 20px;
-  border-bottom: 1px solid #ddd;
-  font-size: 18px;
-  font-weight: bold;
+  border-bottom: 1px solid #e5e7f5;
 }
 
 /* 左側タイトル */
 .header-title {
   font-size: 20px;
+  font-weight: 700;
+  color: #4b4f7a;
 }
 
 /* 右側プロフィール全体 */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
 .header-user {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: normal;
 }
 
 /* 丸いアイコン */
@@ -48,10 +77,16 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-/* 名前＋役職の縦並び */
+/* 名前＋部署を縦並び */
 .user-text {
   display: flex;
   flex-direction: column;
@@ -60,12 +95,12 @@
 
 .user-name {
   font-size: 14px;
-  font-weight: 600;
-  color: #5F6181;
+  font-weight: 700;
+  color: #5f6181;
 }
 
-.user-role {
+.user-dept {
   font-size: 12px;
-  color: #9CA0C5;
+  color: #9ca0c5;
 }
 </style>

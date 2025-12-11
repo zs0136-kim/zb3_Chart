@@ -48,7 +48,7 @@ watch(
   { immediate: true }
 )
 
-// タブクリックでURLも変える
+// タブクリックでURLを変える
 const onTabClick = (pane) => {
   // pane.paneName に name 属性が入ってる
   router.push(`/quotations/${pane.paneName}`)

@@ -111,3 +111,42 @@ body {
   display: flex !important;
   flex-direction: column;
 }
+
+/* ------- ON/OFFスイッチ共通 ------- */
+/* コア部分の共通デザイン */
+.el-switch.chart-switch .el-switch__core {
+  background-color: #e5e7f5;
+  border-color: #e5e7f5;
+}
+
+/* ON のときの色 */
+.el-switch.chart-switch.is-checked .el-switch__core {
+  background-color: #8B5CF6;
+  border-color: #8B5CF6;
+}
+
+/* ラベルの文字色 */
+.el-switch.chart-switch .el-switch__label {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ON のラベルを少し強調 */
+.el-switch.chart-switch.is-checked .el-switch__label.is-active {
+  color: #4c1d95;
+  font-weight: 600;
+}
+
+/* disabled っぽくしたいとき */
+.el-switch.chart-switch.is-disabled .el-switch__core {
+  opacity: 0.6;
+}
+
+.el-switch.chart-switch.is-disabled .el-switch__label {
+  color: #9ca3af;
+}
+
+:deep(.chart-switch.is-disabled.is-checked .el-switch__core) {
+  background-color: #8B5CF6;
+  border-color: #8B5CF6;
+}

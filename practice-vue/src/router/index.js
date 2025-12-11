@@ -2,6 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {
+      path: '/login',
+      component: () => import('../pages/Login.vue'),
+      meta: { hideLayout: true }, // サイドメニュー＆ヘッダーを隠すフラグ
+    },
+    {
         path: '/',
         component: () => import('../pages/Home.vue'),
         meta: { title: 'ダッシュボード' }

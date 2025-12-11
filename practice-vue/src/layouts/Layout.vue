@@ -1,3 +1,4 @@
+<!-- src/layouts/Layout.vue -->
 <template>
   <div class="layout">
     <!-- 左サイドメニュー -->
@@ -5,12 +6,9 @@
       <Sidebar />
     </aside>
 
-    <!-- 右側メイン領域 -->
+    <!-- 右側メイン -->
     <div class="main">
-      <!-- 共通ヘッダー -->
       <HeaderBar />
-
-      <!-- 各ページの内容 -->
       <div class="content">
         <router-view />
       </div>
@@ -19,8 +17,8 @@
 </template>
 
 <script setup>
-import Sidebar from '../components/Sidebar.vue'
-import HeaderBar from '../components/HeaderBar.vue'
+  import Sidebar from '../components/Sidebar.vue'
+  import HeaderBar from '../components/HeaderBar.vue'
 </script>
 
 <style scoped>
@@ -40,8 +38,8 @@ import HeaderBar from '../components/HeaderBar.vue'
 }
 
 .content {
-  padding: 16px;
-  overflow: auto;
   flex: 1;
+  overflow: auto;
+  padding: 16px;
 }
 </style>
